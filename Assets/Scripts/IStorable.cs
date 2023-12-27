@@ -1,4 +1,4 @@
 ﻿interface IStorable
 {
-    public int Volume { get; set; }
+    int Volume { get; }
 }
