@@ -1,4 +1,4 @@
-public abstract class Antropomorphic : Alive
+public abstract class Antropomorph : Alive
 {
     public Helmet Helmet { get; set; }      
     public Body Body { get; set; }
