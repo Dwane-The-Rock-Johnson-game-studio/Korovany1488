@@ -1,7 +1,7 @@
 public abstract class Armor : GameEntity
 {
-    public float DamageSuppression {  get; private set; }
-    public float DamageThreshold {  get; private set; }
+    public float DamageSuppression {  get; protected set; }
+    public float DamageThreshold {  get; protected set; }
 
     public float SuppressDamage(float damage) 
     { 
