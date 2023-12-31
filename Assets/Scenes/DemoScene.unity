@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2033256006747532535, guid: aa4d5e4b046142e46944d133d7ca3bc1, type: 3}
+      propertyPath: <Volume>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3518523193476186663, guid: aa4d5e4b046142e46944d133d7ca3bc1, type: 3}
       propertyPath: m_Name
       value: Pickable Food
@@ -338,6 +342,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2086113226}
+    - targetCorrespondingSourceObject: {fileID: 8616685848737228372, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2086113233}
   m_SourcePrefab: {fileID: 100100000, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
 --- !u!4 &599576077 stripped
 Transform:
@@ -625,7 +632,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _showPopup: {fileID: 1372151804}
-  _detectStorableItem: {fileID: 2086113226}
+  _interactStorableItem: {fileID: 2086113226}
 --- !u!4 &966335522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4135013735270702856, guid: c5efc39a8aaf6e64ea40e9ad573e9b47, type: 3}
@@ -971,3 +978,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _camera: {fileID: 1756930428}
   _maxDetectDistance: 1.5
+--- !u!114 &2086113233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2086113219}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9783230d27a00d4c804aa65a844179a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 #if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
@@ -7,11 +8,14 @@ namespace StarterAssets
 {
 	public class StarterAssetsInputs : MonoBehaviour
 	{
+		public Action<bool> OnInteractButtonPressed;
+
 		[Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
+		public bool tryingInteract;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -43,6 +47,11 @@ namespace StarterAssets
 		{
 			SprintInput(value.isPressed);
 		}
+
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+        }
 #endif
 
 
@@ -64,6 +73,12 @@ namespace StarterAssets
 		public void SprintInput(bool newSprintState)
 		{
 			sprint = newSprintState;
+		}
+
+		public void InteractInput(bool newPickState)
+		{
+			tryingInteract = newPickState;
+			OnInteractButtonPressed?.Invoke(newPickState);
 		}
 		
 		private void OnApplicationFocus(bool hasFocus)

@@ -3,11 +3,11 @@ using UnityEngine;
 public class StorablePopup : MonoBehaviour
 {
     [SerializeField] private ShowPopup _showPopup;
-    [SerializeField] private DetectStorableItem _detectStorableItem;
+    [SerializeField] private InteractStorableItem _interactStorableItem;
 
     private void FixedUpdate()
     {
-        if (_detectStorableItem.IsStorableItem())
+        if (_interactStorableItem.IsStorableItem())
         {
             _showPopup.ShowText();
         }
@@ -15,7 +15,5 @@ public class StorablePopup : MonoBehaviour
         {
             _showPopup.HideText();
         }
-    }
-
-    
+    }   
 }
