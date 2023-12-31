@@ -1,6 +1,8 @@
+using UnityEngine;
+
 public class Food : GameEntity, IStorable
 {
-    public int Volume { get; private set; }
-    public float HealthBonus { get; private set; }
-    public float StaminaBonus { get; private set; }
+    [field: SerializeField] public int Volume { get; private set; }
+    [field: SerializeField] public float HealthBonus { get; private set; }
+    [field: SerializeField] public float StaminaBonus { get; private set; }
 }

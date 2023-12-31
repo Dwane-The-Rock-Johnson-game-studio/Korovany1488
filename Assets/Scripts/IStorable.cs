@@ -1,4 +1,4 @@
 ﻿public interface IStorable
 {
-    int Volume { get; }
+    [field: SerializeField] int Volume { get; }
 }

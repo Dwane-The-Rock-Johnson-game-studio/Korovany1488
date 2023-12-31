@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DetectStorableItem : MonoBehaviour
@@ -14,12 +15,16 @@ public class DetectStorableItem : MonoBehaviour
         if (Physics.Raycast(ray, out hit, _maxDetectDistance))
         {
             storableItem = hit.collider.GetComponent<IStorable>();
-
+            if (Input.GetKeyDown(KeyCode.E))
+                PickUpStorableItem(storableItem);
             return storableItem != null;
         }
-        else
-        {
-            return false;
-        }
+        return false;
+    }
+    
+    public void PickUpStorableItem(IStorable storableItem)
+    {
+        if (GetComponent<Antropomorph>().Inventory.StoreItem(storableItem))
+            Debug.Log("Picked up!");
     }
 }
