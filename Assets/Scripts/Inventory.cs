@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -8,6 +9,9 @@ public class Inventory : GameEntity
     public bool IsInfinity { get; private set; }
     public List<IStorable> ListThings { get; private set; }
     public bool CanEquip { get; private set; }
+
+
+    public event Action<IStorable> OnItemAdded;
 
     public Inventory(int maxCapacity, bool canEquip, bool isInfinity = false)
     {
@@ -21,6 +25,7 @@ public class Inventory : GameEntity
     {
         if (!IsInfinity && CurrentCapacity + storableItem.Volume > MaxCapacity) return false;
         ListThings.Add(storableItem);
+        OnItemAdded?.Invoke(storableItem);
         return true;
     }
 }

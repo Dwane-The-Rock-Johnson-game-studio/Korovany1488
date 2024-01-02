@@ -1,6 +1,6 @@
 using StarterAssets;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class InteractStorableItem : MonoBehaviour
 {
@@ -36,6 +36,8 @@ public class InteractStorableItem : MonoBehaviour
         IStorable storableItem = GetStorableItem();
         if (storableItem == null || !interactButtonPressed) return;
         if (GetComponent<Antropomorph>().Inventory.StoreItem(storableItem))
+        {
             Debug.Log("Picked up!");
+        }
     }
 }
