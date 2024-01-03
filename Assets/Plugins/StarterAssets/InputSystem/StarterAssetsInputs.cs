@@ -9,15 +9,17 @@ namespace StarterAssets
 	public class StarterAssetsInputs : MonoBehaviour
 	{
 		public Action<bool> OnInteractButtonPressed;
+        public Action<bool> OnInventoryButtonPressed;
 
-		[Header("Character Input Values")]
+        [Header("Character Input Values")]
 		public Vector2 move;
 		public Vector2 look;
 		public bool jump;
 		public bool sprint;
 		public bool tryingInteract;
+        public bool isInventoryOpen = false;
 
-		[Header("Movement Settings")]
+        [Header("Movement Settings")]
 		public bool analogMovement;
 
 		[Header("Mouse Cursor Settings")]
@@ -52,10 +54,15 @@ namespace StarterAssets
 		{
 			InteractInput(value.isPressed);
         }
+
+        public void OnInventory(InputValue value)
+        {
+            InventoryInput(value.isPressed);
+        }
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -80,8 +87,17 @@ namespace StarterAssets
 			tryingInteract = newPickState;
 			OnInteractButtonPressed?.Invoke(newPickState);
 		}
-		
-		private void OnApplicationFocus(bool hasFocus)
+
+        public void InventoryInput(bool newInventoryState)
+        {
+            if (newInventoryState)
+			{
+				isInventoryOpen = !isInventoryOpen;
+                OnInventoryButtonPressed?.Invoke(newInventoryState);
+            }
+        }
+
+        private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
 		}
