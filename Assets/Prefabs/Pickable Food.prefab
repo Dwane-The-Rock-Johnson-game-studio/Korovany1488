@@ -33,7 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6372126777019663116
 MeshFilter:
@@ -63,7 +63,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 006fdb98000687d4684b3d4e1397633f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,3 +118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60820ee2a85e4bd47b3ca267e94ed43b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Volume>k__BackingField: 2
+  <Sprite>k__BackingField: {fileID: 21300000, guid: 023a3959661d1ef4a8e0a966d90f6e24, type: 3}
+  <HealthBonus>k__BackingField: 0
+  <StaminaBonus>k__BackingField: 0
