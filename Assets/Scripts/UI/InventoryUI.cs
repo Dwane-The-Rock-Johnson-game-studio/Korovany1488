@@ -3,20 +3,19 @@ using UnityEngine;
 
 public class InventoryUI : MonoBehaviour
 {
-    [SerializeField] private GameObject _inventoryUI;
-
-    [SerializeField] private Transform _itemSlots;
-    [SerializeField] private GameObject _slotPrefab;
-
     [SerializeField] private GameObject _player;
-    [SerializeField] private StarterAssetsInputs _inputs;
+    [SerializeField] private GameObject _inventoryUI;
+    [SerializeField] private GameObject _itemSlotsParent;
 
+    private StarterAssetsInputs _inputs;
     private Inventory _inventory;
+    private InventorySlot[] _slots;
     private FirstPersonController _controller;
 
     private void Awake()
     {
         _inventory = _player.GetComponent<Human>().Inventory;
+        _inputs = _player.GetComponent<StarterAssetsInputs>();
         _controller = _player.GetComponent<FirstPersonController>();
     }
 
@@ -24,9 +23,26 @@ public class InventoryUI : MonoBehaviour
     {
         _inputs.OnInventoryButtonPressed += OpenInventory;
         _inventory.OnItemAdded += UpdateUIOnItemAdded;
+
+        _slots = _itemSlotsParent.GetComponentsInChildren<InventorySlot>();
     }
 
-    private void UpdateUIOnItemAdded(IStorable item) => Debug.Log("Added item in inventory");
+    private void UpdateUIOnItemAdded(IStorable item) => FillItemSlots();
+
+    private void FillItemSlots()
+    {
+        for (int i = 0; i < _slots.Length; i++)
+        {
+            if (i < _inventory.ListThings.Count)
+            {
+                _slots[i].AddItem(_inventory.ListThings[i]);
+            }
+            else
+            {
+                _slots[i].ClearSlot();
+            }
+        }
+    }
 
     private void OpenInventory(bool buttonPressed)
     {
@@ -37,7 +53,6 @@ public class InventoryUI : MonoBehaviour
         }
     }
 
-    // я думаю это тут не должно быть, но ладно
     public void FreezeGame(bool state)
     {
         Time.timeScale = state ? 0f : 1f;
