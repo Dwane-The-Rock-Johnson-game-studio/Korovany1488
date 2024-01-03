@@ -1,6 +1,5 @@
 using StarterAssets;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class InteractStorableItem : MonoBehaviour
 {
@@ -37,7 +36,8 @@ public class InteractStorableItem : MonoBehaviour
         if (storableItem == null || !interactButtonPressed) return;
         if (GetComponent<Antropomorph>().Inventory.StoreItem(storableItem))
         {
-            Debug.Log("Picked up!");
+            GameObject storableGameObject = (storableItem as MonoBehaviour).gameObject;
+            Destroy(storableGameObject);
         }
     }
 }
