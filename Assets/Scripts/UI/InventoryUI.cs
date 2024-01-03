@@ -38,7 +38,7 @@ public class InventoryUI : MonoBehaviour
     }
 
     // я думаю это тут не должно быть, но ладно
-    private void FreezeGame(bool state)
+    public void FreezeGame(bool state)
     {
         Time.timeScale = state ? 0f : 1f;
         _controller.enabled = !state;
