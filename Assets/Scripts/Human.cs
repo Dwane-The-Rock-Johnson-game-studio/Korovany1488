@@ -6,6 +6,6 @@ public class Human : Antropomorph
     {
         Health = 100f;
         Stamina = 100f;
-        Inventory = new Inventory(10, true);
+        Inventory = new Inventory(20, true);
     }
 }

@@ -1,4 +1,7 @@
-﻿public interface IStorable
+﻿using UnityEngine;
+
+public interface IStorable
 {
-    [field: SerializeField] int Volume { get; }
+    int Volume { get; }
+    Sprite Sprite { get; }
 }
